@@ -27,6 +27,23 @@
             </ul>
         </nav>
     </header>
+    <main class="main">
+        <div class="form">
+            <form action="{{ url_for('contact')}}" method="post">
+                <div>
+                    <label for="email">Email Address:</label>
+                    <input type="email" name="email" id="email" placeholder="example@example.com" required>
+                </div>
+                <div>
+                    <label for="idea">Type Your Idea:</label>
+                    <textarea name="idea" id="idea" rows="20" cols="40" placeholder="I think ..." required></textarea>
+                </div>
+                <div>
+                    <button class="button" type="submit">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </main>
     {% endblock %}
 </body>
 </body>
