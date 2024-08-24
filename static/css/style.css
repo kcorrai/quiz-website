@@ -24,3 +24,83 @@ body{
     margin: 0 auto;
     box-shadow: 0 0 10px #333;
 }
+
+.header{
+    display: flex;
+    justify-content: space-around;
+    margin: 40px;
+    background-color: #333;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.header__nav{
+    background-color: #333;
+    color: whitesmoke;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    min-width: 600px;
+}
+
+.header__ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    gap: 1rem;
+    padding: 15px;
+}
+
+.header__a{
+    color: whitesmoke;
+    font-size: 1.5rem;
+}
+
+.header__a:hover,
+.header__a:focus {
+    text-decoration: none;
+    color: dodgerblue;
+}
+
+.about__main {
+    background-color: #bba9a9;
+    border-radius: 20px;
+    padding: 50px;
+    margin: 40px;
+}
+
+.about__h1{
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.about__h2{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 2.2rem;
+}
+
+.about__p{
+    line-height: 1.5;
+    font-size: 1.3rem;
+    margin-left: 40px;
+}
+
+.about__ul{
+    margin-left: 120px;
+}
+
+.about__a{
+    color: #333;
+}
+
+.about__a:hover,
+.about__a:focus,
+.about__a:active{
+    color: whitesmoke;
+    text-decoration: none;
+}

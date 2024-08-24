@@ -10,6 +10,42 @@
     <link rel="icon" href="../static/images/logo.jpg">
 </head>
 <body>
-    <h1>About</h1>
+    {% block content %}
+    <header class="header">
+        <img src="../static/images/logo-nobg.png" alt="KCORQUIZ logo" width="400">
+        <nav class="header__nav">
+            <ul class="header__ul">
+                <li>
+                    <a class="header__a" href={{'/'}}>Home</a>
+                </li>
+                <li>
+                    <a class="header__a" href={{'/contact'}}>Contact</a>
+                </li>
+                <li>
+                    <a class="header__a" href={{'/about'}}>About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="about__main">
+        <h1 class="about__h1">FAQ</h1>
+        <h2 class="about__h2">Who are you?</h2>
+        <p class="about__p">I'm a developer from <strong>Türkiye</strong>. I'm going to high sprofilechool and I want to expand the conservation area. It is a hobby for me and I enjoy
+             doing it very much. As you can see my nick is <strong>kcorrai</strong>. You can access my repostories from my <strong><a href="https://github.com/kcorrai" class="about__a">github profile</a></strong>.
+        </p>
+        <h2 class="about__h2">What can I do on this site?</h2>
+        <p class="about__p">As the name suggests, this is a <strong>quiz site</strong>. You can solve various quizzes, from knowledge quiz to personality quiz.
+            You can also send me your ideas about the site from the <strong>contact</strong> section.</p>
+        <h2 class="about__h2">Which quizzes can I solve?</h2>
+        <p class="about__p">You can solve any test you want. Here are some quizzes I recommend.</p>
+        <ul class="about__ul">
+            <li>quiz 1</li>
+            <li>quiz 2</li>
+            <li>quiz 3</li>
+            <li>quiz 4</li>
+        </ul>
+    </main>
+    {% endblock %}
+</body>
 </body>
 </html>
