@@ -225,3 +225,8 @@ footer p{
     text-align: center;
     font-size: 0.8rem;
 }
+
+.three div:hover{
+    background-image: linear-gradient(to bottom, whitesmoke, rgb(238, 212, 64));
+    transition: all 10s ease;
+}
