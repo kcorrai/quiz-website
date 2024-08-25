@@ -158,3 +158,20 @@ body{
     font-size: 2rem;
     font-family: "Fugaz One", sans-serif;
 }
+
+.nowrap{
+    white-space: nowrap;
+}
+
+footer{
+    background-color: #333;
+    border-radius: 20px;
+    margin: 40px;
+}
+
+footer p{
+    color: whitesmoke;
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+    font-size: 1.5rem;
+}
