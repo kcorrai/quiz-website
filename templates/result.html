@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="kcorrai">
+    <meta name="description" content="About Page of Quiz Website">
+    <title>About</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" href="../static/images/logo.jpg">
+</head>
+<body>
+    {% block content %}
+    <header class="header">
+        <img src="../static/images/logo-nobg.png" alt="KCORQUIZ logo" width="400">
+        <nav class="header__nav">
+            <ul class="header__ul">
+                <li>
+                    <a class="header__a" href={{'/'}}>Home</a>
+                </li>
+                <li>
+                    <a class="header__a" href={{'/contact'}}>Contact</a>
+                </li>
+                <li>
+                    <a class="header__a" href={{'/about'}}>About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+        <h2>You Completed the test with {{correct}}/5 overall.</h2>
+        <a class="result__a" href="{{ url_for('reset') }}">Come Back To Home Page</a>
+    </main>
+    <footer>
+        <p>
+            <span class="nowrap">Copyright &copy; 2024</span>
+            <span class="nowrap">KCORQUIZ</span>
+        </p>
+    </footer>
+    {% endblock %}
+</body>
+</body>
+</html>

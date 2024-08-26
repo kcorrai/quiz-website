@@ -28,40 +28,118 @@
         </nav>
     </header>
     <main class="main">
+        {% if value == '' %}
         <div class="three">
             <div>
-                <a href=""><img src="../static/images/sports.png" alt="sport-quiz-logo" width="200" height="200"></a>
+                <form action="{{url_for('index')}}" method="post">
+                    <input type="hidden" name="value" value="sport-data">
+                    <button type="submit">
+                        <img src="../static/images/sports.png" alt="sport-quiz-logo" width="200" height="200">
+                    </button>
+                </form>
                 <h3>Sport Quiz</h3>
                 <p>Test your <b>sports knowledge</b> with questions about athletes, teams, and major events.</p>
             </div>
             <div>
-                <a href=""><img src="../static/images/microphone.png" alt="pop-culture-quiz-logo" width="200" height="200"></a>
+                <form action="{{url_for('index')}}" method="post">
+                    <input type="hidden" name="value" value="pop-culture-data">
+                    <button type="submit">
+                        <img src="../static/images/microphone.png" alt="pop-culture-quiz-logo" width="200" height="200">
+                    </button>
+                </form>
                 <h3>Pop Culture Quiz</h3>
                 <p>Test your knowledge of the <b>latest trends</b> and <b>iconic moments</b> from movies, music, and more.</p>
             </div>
             <div>
-                <a href=""><img src="../static/images/parchment.png" alt="history-quiz-logo" width="200" height="200"></a>
+                <form action="{{url_for('index')}}" method="post">
+                    <input type="hidden" name="value" value="history-data">
+                    <button type="submit">
+                        <img src="../static/images/parchment.png" alt="history-quiz-logo" width="200" height="200">
+                    </button>
+                </form>              
                 <h3>History Quiz</h3>
                 <p>Explore key events, figures, and milestones from the past with our <b>engaging history</b> quiz.</p>
             </div>
         </div>
         <div class="three">
             <div>
-                <a href=""><img src="../static/images/research.png" alt="literature-quiz-logo" width="200" height="200"></a>
+                <form action="{{url_for('index')}}" method="post">
+                    <input type="hidden" name="value" value="literature-data">
+                    <button type="submit">
+                        <img src="../static/images/research.png" alt="literature-quiz-logo" width="200" height="200">
+                    </button>
+                </form>
                 <h3>Literature Quiz</h3>
                 <p>Dive into the world of <b>classic</b> and <b>contemporary</b> literature with our quiz.</p>
             </div>
             <div>
-                <a href=""><img src="../static/images/chemistry.png" alt="science-quiz-logo" width="200" height="200"></a>
+                <form action="{{url_for('index')}}" method="post">
+                    <input type="hidden" name="value" value="science-data">
+                    <button type="submit">
+                        <img src="../static/images/chemistry.png" alt="science-quiz-logo" width="200" height="200">
+                    </button>
+                </form>
                 <h3>Science Quiz</h3>
                 <p>Challenge your understanding of <b>scientific</b> concepts, discoveries, and innovations.</p>
             </div>
             <div>
-                <a href=""><img src="../static/images/globe.png" alt="geography-quiz-logo" width="200" height="200"></a>
+                <form action="{{url_for('index')}}" method="post">
+                    <input class="offscreen" type="hidden" name="value" value="geography-data">
+                    <button type="submit">
+                        <img src="../static/images/globe.png" alt="geography-quiz-logo" width="200" height="200">
+                    </button>
+                </form>
                 <h3>Geography Quiz</h3>
                 <p>Test your knowledge of countries, capitals, landmarks, and physical features.</p>
             </div>
         </div>
+        {% else %}
+            {% if current_question_index == 0 %}
+                <form class="quiz__form" action="{{url_for('index')}}" method="post">
+                    <h2>{{current_question_index + 1}}. {{question['question']}}</h2>
+                    {% for option in question['options'] %}
+                        <label>
+                            <input type="radio" name="answer" value="{{ option }}" id="{{option}}">
+                            <span class="option__span">{{ option }}</span>
+                        </label><br>
+                    {% endfor %}
+                    <input class="offscreen" type="hidden" name="value" value="{{ value }}">
+                    <div class="buttons">
+                        <button class="next" type="submit" name="next">Next Question</button>
+                    </div>
+                </form>
+            {% elif current_question_index == 4 %}
+                <form class="quiz__form" action="{{url_for('index')}}" method="post">
+                    <h2>{{current_question_index + 1}}. {{question['question']}}</h2>
+                    {% for option in question['options'] %}
+                        <label>
+                            <input type="radio" name="answer" value="{{ option }}" id="{{option}}">
+                            <span class="option__span">{{ option }}</span>
+                        </label><br>
+                    {% endfor %}
+                    <input class="offscreen" type="hidden" name="value" value="{{ value }}">
+                    <div class="buttons">
+                        <button class="finish" type="submit" name="finish">Finish Quiz</button>
+                        <button class="prev" type="submit" name="prev">Previous Question</button>
+                    </div>
+                </form>
+            {% else %}
+                <form class="quiz__form" action="{{url_for('index')}}" method="post">
+                    <h2>{{current_question_index + 1}}. {{question['question']}}</h2>
+                    {% for option in question['options'] %}
+                        <label>
+                            <input type="radio" name="answer" value="{{ option }}" id="{{option}}">
+                            <span class="option__span">{{ option }}</span>
+                        </label><br>
+                    {% endfor %}
+                    <input class="offscreen" type="hidden" name="value" value="{{ value }}">
+                    <div class="buttons">
+                        <button class="next" type="submit" name="next">Next Question</button>
+                        <button class="prev" type="submit" name="prev">Previous Question</button>
+                    </div>
+                </form>
+            {% endif %}
+        {% endif %}
     </main>
     <footer>
         <p>
