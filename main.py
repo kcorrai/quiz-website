@@ -48,7 +48,7 @@ def index():
             question_keys = list(quiz.keys())
             question_key = question_keys[current_question_index]
             correct_answer = quiz[question_key]['answer']
-            user_ask.append('')
+            user_ask.append('-')
             correct_ask.append(correct_answer)
 
         if 'next' in request.form:
