@@ -28,7 +28,21 @@
         </nav>
     </header>
     <main class="main">
-        <h2>You Completed the test with {{correct}}/5 overall.</h2>
+        <h2>You Completed the test with {{correct}}/5 in total.</h2>
+        <div class="two">
+            <div>
+                <h3>Selected Answers</h3>
+                {% for i in user_ask %}
+                    <p>{{i}}</p>
+                {% endfor %}
+            </div>
+            <div>
+                <h3>Correct Answers</h3>
+                {% for i in correct_ask %}
+                    <p>{{i}}</p>
+                {% endfor %}
+            </div>
+        </div>
         <a class="result__a" href="{{ url_for('reset') }}">Come Back To Home Page</a>
     </main>
     <footer>

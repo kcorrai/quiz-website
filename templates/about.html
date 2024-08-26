@@ -39,10 +39,30 @@
         <h2 class="about__h2">Which quizzes can I solve?</h2>
         <p class="about__p">You can solve any test you want. Here are some quizzes I recommend.</p>
         <ul class="about__ul">
-            <li>quiz 1</li>
-            <li>quiz 2</li>
-            <li>quiz 3</li>
-            <li>quiz 4</li>
+            <li>
+                <form action="{{url_for('index')}}" method="post">
+                    <input type="hidden" name="value" value="sport-data">
+                    <button class="about__button" type="submit">
+                        Sport Quiz
+                    </button>
+                </form>
+            </li>
+            <li>
+                <form action="{{url_for('index')}}" method="post">
+                    <input type="hidden" name="value" value="pop-culture-data">
+                    <button class="about__button" type="submit">
+                        Pop Culture Quiz
+                    </button>
+                </form>
+            </li>
+            <li>
+                <form action="{{url_for('index')}}" method="post">
+                    <input type="hidden" name="value" value="history-data">
+                    <button class="about__button" type="submit">
+                        History Quiz
+                    </button>
+                </form>
+            </li>
         </ul>
     </main>
     <footer>
@@ -52,6 +72,5 @@
         </p>
     </footer>
     {% endblock %}
-</body>
 </body>
 </html>

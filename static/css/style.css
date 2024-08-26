@@ -324,3 +324,49 @@ footer p{
     text-decoration: none;
     color: #333;
 }
+
+.about__button{
+    width: auto;
+    height: 4vh;
+    font-size: 30px;
+    border-radius: 20px;
+    font-family: "Fugaz One", sans-serif;
+    text-align: center;
+    margin: 40px;
+    white-space: nowrap;
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+.about__button:hover,
+.about__button:focus{
+    background-image: linear-gradient(to bottom, whitesmoke, dodgerblue);
+}
+
+.main h2{
+    margin-bottom: 40px;
+}
+
+.main .two{
+    display: flex;
+    flex-direction: row;
+}
+
+.main .two div{
+    margin: 0 50px 0 50px;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    padding: 40px;
+}
+
+.main .two div h3{
+    font-family: "Oswald", sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.main .two div p{
+    line-height: 1.5;
+    text-align: center;
+    font-size: 1.2rem;
+}

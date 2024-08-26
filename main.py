@@ -18,10 +18,13 @@ class User(db.Model):
     
 correct = 0
 current_question_index = 0
+user_ask = []
+correct_ask = []
+
     
 @app.route('/', methods=['GET','POST'])
 def index():
-    global current_question_index, correct
+    global current_question_index, correct, user_ask, correct_ask
     value = ''
     if request.method == 'POST':
         value = request.form['value']
@@ -32,11 +35,21 @@ def index():
             question_keys = list(quiz.keys())
             question_key = question_keys[current_question_index]
             correct_answer = quiz[question_key]['answer']
+            user_ask.append(selected_answer)
+            correct_ask.append(correct_answer)
 
             if selected_answer == correct_answer:
                 correct += 1
             else:
                 pass
+
+        elif not selected_answer and value:
+            quiz = quizzes[value]
+            question_keys = list(quiz.keys())
+            question_key = question_keys[current_question_index]
+            correct_answer = quiz[question_key]['answer']
+            user_ask.append('')
+            correct_ask.append(correct_answer)
 
         if 'next' in request.form:
         # `i` değerini artır ve soruları döndür
@@ -44,8 +57,15 @@ def index():
         elif 'prev' in request.form:
         # `i` değerini azalt ve soruları döndür
             current_question_index = (current_question_index - 1) % len(quiz)
+            if len(user_ask) > 0:
+                user_ask.pop()
+                correct_ask.pop()
         elif 'finish' in request.form:
             current_question_index = 0
+            user_ask.remove(user_ask[0])
+            correct_ask.remove(correct_ask[0])
+            print(user_ask)
+            print(correct_ask)
             return redirect(url_for('finish'))
         
         question_keys = list(quiz.keys())
@@ -57,15 +77,17 @@ def index():
     else:
         return render_template('index.html', value=value)
     
-@app.route('/finish')
+@app.route('/result')
 def finish():
-    global correct
-    return render_template('result.html', correct=correct)
+    global correct, correct_ask, user_ask
+    return render_template('result.html', correct=correct, correct_ask=correct_ask, user_ask=user_ask)
 
 @app.route('/reset')
 def reset():
-    global correct
+    global correct, correct_ask, user_ask
     correct = 0
+    correct_ask = []
+    user_ask = []
     return redirect(url_for('index'))
 
 @app.route('/contact', methods=['GET','POST'])
